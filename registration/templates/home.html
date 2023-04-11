@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Contacts{% endblock %}
+
+{% block contacts_active %}active{% endblock %}
+
+{% block content %}
+<div id="home" class="banner">
+    <div class="app-text">
+            <h1>Welcome to VoIP Auto Dialer</h1>
+            <p>Auto Dialer allows to automate scheduled 
+            <br>outgoing calls directly to telephone numbers
+            <br>from a list of contacts, with the option of
+            <br>playing audio messages. That eliminates the
+            <br>need to spend pointless time dialing each
+            <br>and every telephone number you need to call manually.</p>
+            <div class="yellow-btn">
+                <a class="btn yellow" href="/contacts">Get Started</a>
+            </div>
+    </div>
+    <div class="app-picture">
+      <img src="{% static 'images/Reduce-Agent-Idle-Time.png' %}" alt="Main Image">
+    </div>
+    <div class="downwhite">
+        <img src="{% static 'images/downwhite.webp' %}" alt="Down Image">
+    </div>
+</div>
+{% endblock %}

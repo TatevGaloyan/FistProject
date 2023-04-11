@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Schedule{% endblock %}
+
+{% block schedule_active %}active{% endblock %}
+
+{% block content %}
+<div id="schedule" class="callschedule">
+    <div class="toptext">
+        <h1>Call Related Settings</h1>
+    </div>
+    <form action="{% url 'save_schedule' %}" class="ScheduleNumbers" method="POST">
+      {% csrf_token %}
+      <div class="jam">
+        <div class="selectner">
+          <br>
+          <label for="startTime">Schedule start time:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+          <input type="time" name="start_time" value="00:00">
+          <br><br><br>
+          <label for="endTime">Schedule end time:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+          <input type="time" name="end_time" value="00:00">
+          <br><br><br>
+          <label for="maxNumber">Max number of simultaneous calls:&nbsp;&nbsp;</label>
+          <input type="number" name="max_number" min="0" max="1000">
+          <br><br><br>
+          <label for="maxRetry">Max retry count:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+          <input type="number" name="max_retry" min="0" max="1000">
+          <br><br><br>
+          <label for="timeBetween">Time between repeated attempts:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+          <input type="number" name="time_between" min="0" max="1000">
+          <span>min.</span>
+          <br><br>
+      </div>
+      <div class="Clock">
+        <img src="{% static 'images/Scheduling-image.png' %}">
+      </div>
+    </div>
+        <br><hr><br>
+        <button type="reset">Reset</button>
+        <button type="submit" class="saveButton" id="saveSchedule">Save</button>
+    </form>
+</div>
+{% endblock %}
